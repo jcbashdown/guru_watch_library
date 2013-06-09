@@ -21,27 +21,3 @@ echo
 echo 'Library / Ruby Persistence API with ActiveRecord Backend'
 echo '-------------------------------------------------------------------------------------'
 bundle exec rake test:lib:ruby_persistence_api BACKEND=active_record
-
-echo
-echo
-echo 'Application / Entities'
-echo '-------------------------------------------------------------------------------------'
-bundle exec rake test:app:entities
-
-echo
-echo
-echo 'Application / Use Cases'
-echo '-------------------------------------------------------------------------------------'
-bundle exec rake test:app:use_cases
-
-echo
-echo
-echo 'Application / Frontends'
-echo '-------------------------------------------------------------------------------------'
-bundle exec rake test:app:frontends
-
-echo
-echo
-echo 'Application / Backends'
-echo '-------------------------------------------------------------------------------------'
-bundle exec rake test:app:backends

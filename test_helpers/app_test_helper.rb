@@ -2,12 +2,12 @@
 
 ENV['APP_ENV'] = 'test'
 
-require_relative('../app/application')
+require 'rubygems'
+require 'bundler/setup'
+require 'guru_watch_library'
 
 require 'minitest/autorun'
 require 'minitest-colorize'
 require 'mocha'
 
 require 'guru_watch/test_case'
-
-require 'factories/all'

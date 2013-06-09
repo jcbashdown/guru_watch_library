@@ -4,7 +4,7 @@ require 'app_test_helper'
 
 module UseCases
 
-  class UseCaseTest < GuruWatch::TestCase
+  class UseCaseTest < ActiveSupport::TestCase
 
     class ConcreteUseCase < UseCase;
     end
