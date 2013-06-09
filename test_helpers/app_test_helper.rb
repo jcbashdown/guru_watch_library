@@ -9,5 +9,3 @@ require 'guru_watch_library'
 require 'minitest/autorun'
 require 'minitest-colorize'
 require 'mocha'
-
-require 'guru_watch/test_case'

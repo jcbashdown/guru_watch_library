@@ -13,8 +13,6 @@ class Application
     require_bundler_default_group
     augment_load_path
     require_lib
-    require_app
-    init_backend
   end
 
   def config
@@ -46,37 +44,6 @@ class Application
   def augment_load_path
     libpath = File.expand_path( File.dirname( __FILE__ ) + '../../lib' )
     $LOAD_PATH << libpath
-  end
-
-  def require_app
-    #require_relative 'guru_watch_library/entities/all'
-    #require_relative 'guru_watch_library/use_cases/all'
-  end
-
-  def init_active_memory_backend
-    #require_relative 'guru_watch_library/backends/active_memory/all'
-    #config.backend = RubyPersistenceAPI::ActiveMemory::Backend.new
-    #config.backend.connect!
-  end
-
-  def init_active_record_backend
-    require_relative 'backends/active_record/all'
-    config.backend = RubyPersistenceAPI::ActiveRecord::Backend.new
-    active_record_config = Backends::ActiveRecord::Config.load(env)
-    config.backend.connect!(active_record_config)
-  end
-
-  def init_backend
-    case env
-      when 'test' then
-        init_active_memory_backend
-      when 'development' then
-        init_active_record_backend
-      when 'production' then
-        init_active_record_backend
-      else
-        raise StandardError.new('Unknown environment ' + env)
-    end
   end
 
 end

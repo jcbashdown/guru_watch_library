@@ -15,14 +15,8 @@ Rake::TestTask.new( 'test:lib:entities_api' ) do |t|
   t.verbose = false
 end
 
-Rake::TestTask.new( 'test:lib:ruby_persistence_api' ) do |t|
-  t.libs << ['app', 'lib', 'test_helpers']
-  t.test_files = FileList['test/lib/ruby_persistence_api/**/*_test.rb']
-  t.verbose = false
-end
-
-desc 'Run tests for test:lib:entities_api + test:lib:use_cases_api + test:lib:ruby_persistence_api'
-task 'test:lib' => ['test:lib:entities_api', 'test:lib:use_cases_api', 'test:lib:ruby_persistence_api']
+desc 'Run tests for test:lib:entities_api + test:lib:use_cases_api'
+task 'test:lib' => ['test:lib:entities_api', 'test:lib:use_cases_api']
 
 task default: :test
 

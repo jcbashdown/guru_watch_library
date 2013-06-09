@@ -4,7 +4,7 @@ require 'app_test_helper'
 
 module UseCases
 
-  class ResponseTest < GuruWatch::TestCase
+  class ResponseTest < ActiveSupport::TestCase
 
     class M_initilize < self
 
