@@ -6,9 +6,11 @@ module UseCases
 
     include ::Entities
 
-    attr_accessor :request
+    #db will now be passed in
+    attr_accessor :request, :db
 
-    def initialize(request_or_hash = { })
+    def initialize(request_or_hash = { }, db=nil)
+      @db = db || self.db
       if request_or_hash.is_a?(Hash)
         self.request = Request.new(request_or_hash)
       else
@@ -18,8 +20,10 @@ module UseCases
 
     private
 
-    def db
-      Application.instance.config.backend
+    def self.db
+      #use default db, override either per use or in application initializer. 
+      #Otherwise will use marshall backed memory store
+      @db ||= Application.instance.config.backend
     end
 
   end

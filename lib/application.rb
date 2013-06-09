@@ -19,6 +19,10 @@ class Application
     @config ||= OpenStruct.new
   end
 
+  def configure
+    yield(config)
+  end
+
   def env
     ENV['APP_ENV'] || 'development'
   end
